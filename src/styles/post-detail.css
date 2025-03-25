@@ -1,0 +1,48 @@
+/* 帖子详情页面样式 */
+.post-detail-container {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.post-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.post-image {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.post-image:hover {
+  transform: scale(1.02);
+}
+
+.comment-section {
+  scroll-margin-top: 20px;
+}
+
+.comment-form textarea {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式调整 */
+@media (max-width: 600px) {
+  .post-content {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+} 
