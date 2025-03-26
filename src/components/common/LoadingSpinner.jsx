@@ -1,20 +1,22 @@
 import React from 'react';
-import { Box, CircularProgress, Fade } from '@mui/material';
 
 export default function LoadingSpinner({ size = 40, minHeight = 200 }) {
   return (
-    <Fade in={true} style={{ transitionDelay: '100ms' }}>
-      <Box 
-        sx={{ 
-          display: 'flex', 
-          justifyContent: 'center', 
-          alignItems: 'center', 
-          p: 4,
-          minHeight
+    <div 
+      className="w-full flex justify-center items-center"
+      style={{ 
+        minHeight: `${minHeight}px`,
+        height: `${minHeight}px`
+      }}
+    >
+      <div 
+        className="animate-spin rounded-full border-4 border-gray-200 border-t-blue-500" 
+        style={{ 
+          width: `${size}px`, 
+          height: `${size}px`,
+          display: 'inline-block'
         }}
-      >
-        <CircularProgress size={size} />
-      </Box>
-    </Fade>
+      ></div>
+    </div>
   );
 } 

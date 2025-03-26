@@ -212,7 +212,7 @@ export default React.memo(function PostCard({ post, onDelete }) {
     };
     
     return (
-      <div className="mb-6 bg-white rounded-lg shadow-md overflow-hidden transition-all duration-200 hover:shadow-lg transform hover:-translate-y-1">
+      <div className="mb-6 bg-white rounded-lg shadow-md overflow-hidden">
         {/* 帖子头部 */}
         <div className="p-4 flex justify-between items-center border-b border-gray-100">
           <div className="flex items-center">
@@ -318,15 +318,15 @@ export default React.memo(function PostCard({ post, onDelete }) {
                   className="relative overflow-hidden rounded-lg bg-gray-100 cursor-pointer aspect-video"
                   onClick={() => handleImageClick(url)}
                 >
-                  <div className={`absolute inset-0 transition-opacity duration-300 ${loadedImages[url] ? 'opacity-0' : 'opacity-100'}`}>
-                    <div className="w-full h-full flex items-center justify-center">
-                      <div className="w-6 h-6 border-2 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
-                    </div>
+                  {/* 预加载占位符，确保布局稳定 */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className={`w-6 h-6 border-2 border-gray-300 border-t-blue-500 rounded-full animate-spin ${loadedImages[url] ? 'opacity-0' : 'opacity-100'}`}></div>
                   </div>
                   <img 
                     src={url} 
                     alt={`帖子图片 ${index + 1}`} 
-                    className={`w-full h-full object-cover transition-opacity duration-300 ${loadedImages[url] ? 'opacity-100' : 'opacity-0'}`}
+                    className="w-full h-full object-cover"
+                    style={{ opacity: loadedImages[url] ? 1 : 0 }}
                     onLoad={() => setLoadedImages(prev => ({ ...prev, [url]: true }))}
                   />
                 </div>
@@ -452,12 +452,10 @@ export default React.memo(function PostCard({ post, onDelete }) {
       </div>
     );
   } catch (error) {
-    console.error('渲染 PostCard 时出错:', error);
+    console.error('PostCard 渲染错误:', error);
     return (
       <div className="mb-6 max-w-2xl mx-auto p-4 bg-white rounded-lg shadow-md">
-        <div className="bg-red-50 border-l-4 border-red-500 p-4">
-          <p className="text-red-700">渲染帖子时出错: {error.message || '未知错误'}</p>
-        </div>
+        <p className="text-red-600">帖子渲染失败</p>
       </div>
     );
   }

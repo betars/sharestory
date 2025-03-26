@@ -22,4 +22,78 @@
   .card {
     @apply bg-white rounded-xl shadow-md overflow-hidden;
   }
+  
+  /* 替代 Material-UI Box 组件的通用类 */
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+  
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+  
+  .flex-start {
+    @apply flex justify-start items-center;
+  }
+  
+  .flex-end {
+    @apply flex justify-end items-center;
+  }
+  
+  /* 替代 Typography 组件 */
+  .title-xl {
+    @apply text-2xl font-bold text-gray-900;
+  }
+  
+  .title-lg {
+    @apply text-xl font-semibold text-gray-800;
+  }
+  
+  .title-md {
+    @apply text-lg font-medium text-gray-800;
+  }
+  
+  .text-body {
+    @apply text-base text-gray-700;
+  }
+  
+  .text-secondary {
+    @apply text-sm text-gray-500;
+  }
+  
+  /* 替代 Paper 组件 */
+  .paper {
+    @apply bg-white rounded-lg shadow-md p-4;
+  }
+  
+  /* 替代 Avatar 组件 */
+  .avatar {
+    @apply w-10 h-10 rounded-full object-cover bg-blue-500 text-white flex items-center justify-center overflow-hidden;
+  }
+  
+  /* 替代 Alert 组件 */
+  .alert-error {
+    @apply p-4 bg-red-50 text-red-700 border-l-4 border-red-500 rounded;
+  }
+  
+  .alert-success {
+    @apply p-4 bg-green-50 text-green-700 border-l-4 border-green-500 rounded;
+  }
+  
+  .alert-info {
+    @apply p-4 bg-blue-50 text-blue-700 border-l-4 border-blue-500 rounded;
+  }
+  
+  .alert-warning {
+    @apply p-4 bg-yellow-50 text-yellow-700 border-l-4 border-yellow-500 rounded;
+  }
+  
+  /* 过渡动画效果 */
+  .fade-in {
+    @apply transition-opacity duration-300 ease-in-out opacity-100;
+  }
+  
+  .fade-out {
+    @apply transition-opacity duration-300 ease-in-out opacity-0;
+  }
 }
